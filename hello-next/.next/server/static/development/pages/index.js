@@ -93,6 +93,108 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./comps/Header.js":
+/*!*************************!*\
+  !*** ./comps/Header.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/cwebdale006/Documents/unit 3/react/hello-next/comps/Header.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+const linkStyle = {
+  marginRight: 15
+};
+
+const Header = () => __jsx("div", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8
+  },
+  __self: undefined
+}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9
+  },
+  __self: undefined
+}, __jsx("a", {
+  style: linkStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10
+  },
+  __self: undefined
+}, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/about",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 12
+  },
+  __self: undefined
+}, __jsx("a", {
+  style: linkStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 13
+  },
+  __self: undefined
+}, "About")));
+
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./comps/MyLayout.js":
+/*!***************************!*\
+  !*** ./comps/MyLayout.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./comps/Header.js");
+var _jsxFileName = "/Users/cwebdale006/Documents/unit 3/react/hello-next/comps/MyLayout.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+const layoutStyle = {
+  margin: 20,
+  padding: 20,
+  border: '1px solid #DDD'
+};
+
+const Layout = props => __jsx("div", {
+  style: layoutStyle,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10
+  },
+  __self: undefined
+}, __jsx(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
+  },
+  __self: undefined
+}), props.children);
+
+/* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/map.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/map.js ***!
@@ -1847,25 +1949,26 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Blog; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/cwebdale006/Documents/unit 3/react i guess/hello-next/pages/index.js";
+/* harmony import */ var _comps_MyLayout_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../comps/MyLayout.js */ "./comps/MyLayout.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/cwebdale006/Documents/unit 3/react/hello-next/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-// the link API
 
 
-const Index = () => __jsx("div", {
+
+const PostLink = props => __jsx("li", {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 5
   },
   __self: undefined
-}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/about",
-  title: "About Page",
+}, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  href: `/post?title=${props.title}`,
   __source: {
     fileName: _jsxFileName,
     lineNumber: 6
@@ -1877,15 +1980,50 @@ const Index = () => __jsx("div", {
     lineNumber: 7
   },
   __self: undefined
-}, "About Page")), __jsx("p", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9
-  },
-  __self: undefined
-}, "Hello Next.js"));
+}, props.title)));
 
-/* harmony default export */ __webpack_exports__["default"] = (Index);
+function Blog() {
+  return __jsx(_comps_MyLayout_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, "My Blog"), __jsx("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, __jsx(PostLink, {
+    title: "Hello Next.js",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
+  }), __jsx(PostLink, {
+    title: "Learn Next.js is awesome",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }), __jsx(PostLink, {
+    title: "Deploy apps with Zeit",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  })));
+}
 
 /***/ }),
 
@@ -1896,7 +2034,7 @@ const Index = () => __jsx("div", {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/cwebdale006/Documents/unit 3/react i guess/hello-next/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /Users/cwebdale006/Documents/unit 3/react/hello-next/pages/index.js */"./pages/index.js");
 
 
 /***/ }),
